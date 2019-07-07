@@ -24,6 +24,8 @@
     - name: Save all Output in its raw format
       local_action: copy content="{{ asteroid_output }}" dest="RESTGET-raw-output.txt"
 
+    - name: Save all Output in its raw format
     - local_action: copy content="{{ asteroid_output.json }}" dest="RESTGET-json-output.txt"
 
-    - local_action: copy content="{{ asteroid_output | to_nice_json }}" dest="RESTGET-nicejson-output.txt"
+    - name: Save all Output in its raw format
+     local_action: copy content="{{ asteroid_output | to_nice_json }}" dest="RESTGET-nice-output.json"
