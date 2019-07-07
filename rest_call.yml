@@ -4,12 +4,13 @@
   vars:
     api_key: "hGJYs36dXpCUTh2JhC9coPuNbyypDOeGaKYlnCW0"
     start_date: "2019-07-07"
-    end_date: "2019-07-07"
-
+    end_date: "2019-07-14"
+    base_url: "https://api.nasa.gov/neo/rest/v1/feed"
+    get_url: "{{ base_url }}?{{ start_date }}&{{ end_date }}&api_key={{ api_key }}"
   tasks:
     - name: get vault token
       uri:
-        url: "https://myvault.com:8200/v1/auth/github/login"
+        url: {{ get_url }}
         method: GET
         validate_certs: no
         follow_redirects: all
