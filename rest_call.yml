@@ -8,7 +8,7 @@
     base_url: "https://api.nasa.gov/neo/rest/v1/feed"
     get_url: "{{ base_url }}?{{ start_date }}&{{ end_date }}&api_key={{ api_key }}"
   tasks:
-    - name: get vault token
+    - name: Get Asteroid information
       uri:
         url: "{{ get_url }}"
         method: GET
@@ -21,7 +21,8 @@
 
     - debug: var=asteroid_output
 
-    - local_action: copy content="{{ asteroid_output }}" dest="RESTGET-raw-output.txt"
+    - name: Save all Output in its raw format
+      local_action: copy content="{{ asteroid_output }}" dest="RESTGET-raw-output.txt"
 
     - local_action: copy content="{{ asteroid_output.json }}" dest="RESTGET-json-output.txt"
 
