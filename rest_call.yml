@@ -21,4 +21,8 @@
 
     - debug: var=asteroid_output
 
-    - local_action: copy content="{{ asteroid_output.json }}" dest="RESTGET-raw-output.txt"
+    - local_action: copy content="{{ asteroid_output }}" dest="RESTGET-raw-output.txt"
+
+    - local_action: copy content="{{ asteroid_output.json }}" dest="RESTGET-json-output.txt"
+
+    - local_action: copy content="{{ asteroid_output | to_nice_json }}" dest="RESTGET-nicejson-output.txt"
