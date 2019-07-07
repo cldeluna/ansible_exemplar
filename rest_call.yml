@@ -21,4 +21,4 @@
 
     - debug: var=asteroid_output
 
-    - local_action: copy content="{{ asteroid_output }}" dest="./RESTGET-raw-output.txt"
+    - local_action: copy content="{{ asteroid_output }}" dest="RESTGET-raw-output.txt"
