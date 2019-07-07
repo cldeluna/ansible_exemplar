@@ -10,7 +10,7 @@
   tasks:
     - name: get vault token
       uri:
-        url: {{ get_url }}
+        url: "{{ get_url }}"
         method: GET
         validate_certs: no
         follow_redirects: all
