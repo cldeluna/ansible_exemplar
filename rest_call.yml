@@ -21,13 +21,13 @@
 
     - debug: var=asteroid_output
 
-    - name: Save all Output in its raw format
+    - name: Save all Asteroid Output in its raw format
       local_action:
         copy content="{{ asteroid_output }}"
         dest="RESTGET-raw-output.txt"
 
-    - name: Save all Output in its raw format
+    - name: Save only the data in the json key of Asteroid Output
       local_action: copy content="{{ asteroid_output.json }}" dest="RESTGET-json-output.txt"
 
-    - name: Save all Output in its raw format
+    - name: Save all Asteroid Output after running it through the Ansible to_nice_json filter
       local_action: copy content="{{ asteroid_output | to_nice_json }}" dest="RESTGET-nice-output.json"
